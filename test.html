@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="test"></p>
+
+<script type="text/javascript">
+var w = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var h = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+var x = document.getElementById("test");
+x.innerHTML = "Browser inner window width: " + w + ", height: " + h + ".";
+if (typeof window.vnt !== 'undefined') { // chrome extension installed
+
+    // Dapp UI render or Dapp related logic
+    console.log("installed");
+
+} else { // chrome extension not installed
+
+    // Dapp UI render or Dapp related logic
+    console.log("not installed");
+
+}
+</script>
+
+</body>
+</html>
