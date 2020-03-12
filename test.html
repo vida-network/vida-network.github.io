@@ -52,10 +52,10 @@ function getBalance() {
     	console.log('error happen')
     	console.log(err)
   	} else {
-    	console.log(balance)
+    	console.log(balance);
+      	document.getElementById("demo").innerHTML = "My VIDA Balance is " + balance;
   	}
 	});
-  	document.getElementById("demo").innerHTML = "My VIDA Balance is " + balance;
 }
 </script>
 
