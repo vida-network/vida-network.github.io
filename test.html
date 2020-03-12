@@ -70,7 +70,9 @@ function getBalance() {
 
 <script type="text/javascript">
 function getAmount() {
-var fs = require['fs']; 
+var fs = require(['fs'], function (fs) {
+    //foo is now loaded.
+});
 var contractAddress = "0xdcc040f7a6b2a72cb642364b5e74582fb4a26716";
 var abiFile = "/vida/VIDA.abi"
 // 读取abi数据
