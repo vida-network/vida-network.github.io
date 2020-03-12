@@ -71,15 +71,6 @@ function getBalance() {
 
 <script type="text/javascript">
 function getAmount() {
-var fs = require(['fs'], function (fs) {
-    //foo is now loaded.
-});
-var contractAddress = "0xdcc040f7a6b2a72cb642364b5e74582fb4a26716";
-var abiFile = "/vida/VIDA.abi"
-// 读取abi数据
-var wasmabi = fs.readFileSync(abiFile)
-// 将abi数据解析成json
-var abi = JSON.parse(wasmabi.toString("utf-8"))
 var address = vnt.core.coinbase;
 function GetAmount() {
     // 通过abi生成合约实例
