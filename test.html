@@ -8,8 +8,8 @@
 <button onclick="authorize()">Authorize ME!</button>
 </div>
 <div>
-<p>Check my VIDA balance</p>
-<button onclick="getBalance()">Display my VIDA balance</button>
+<p>Check my VNT balance</p>
+<button onclick="getBalance()">Display my VNT balance</button>
 <p id="balance"></p>
 </div>
 <div>
@@ -54,9 +54,33 @@ function getBalance() {
     	console.log(err)
   	} else {
     	console.log(balance);
-      	document.getElementById("balance").innerHTML = "My VIDA Balance is " + balance;
+      	document.getElementById("balance").innerHTML = "My VNT Balance is " + balance;
   	}
 	});
+}
+</script>
+
+<script type="text/javascript">
+var contractAddress = "0xdcc040f7a6b2a72cb642364b5e74582fb4a26716";
+var abiFile = "/vida/VIDA.abi"
+// 读取abi数据
+var wasmabi = fs.readFileSync(abiFile)
+// 将abi数据解析成json
+var abi = JSON.parse(wasmabi.toString("utf-8"))
+var address = vnt.core.coinbase;
+function GetAmount() {
+    // 通过abi生成合约实例
+    var contract = vnt.core.contract(abi)
+    var data = contract.packFunctionData("GetAmount", [address]);
+    // 生成交易的结构体，指定to, data等字段
+    var options = {
+       to: contractAddress,    // 该字段为合约地址
+       data: data           // 该字段为合约调用的data
+    }
+    // 使用vnt.core.call方法进行查询，不会发起交易
+    var result = vnt.core.call(options)
+    // 对结果进行解码，得出结果。
+    console.log(vnt.fromWei(contract.unPackOutput("GetAmount", result), 'vnt').toString())
 }
 </script>
 
