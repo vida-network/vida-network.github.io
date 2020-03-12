@@ -61,6 +61,7 @@ function getBalance() {
 </script>
 
 <script type="text/javascript">
+function getAmount() {
 var contractAddress = "0xdcc040f7a6b2a72cb642364b5e74582fb4a26716";
 var abiFile = "/vida/VIDA.abi"
 // 读取abi数据
@@ -81,6 +82,7 @@ function GetAmount() {
     var result = vnt.core.call(options)
     // 对结果进行解码，得出结果。
     console.log(vnt.fromWei(contract.unPackOutput("GetAmount", result), 'vnt').toString())
+};
 }
 </script>
 
