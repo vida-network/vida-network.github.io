@@ -46,6 +46,7 @@ function authorize() {
 <script type="text/javascript">
 function getBalance() {
 	var coinbase = vnt.core.coinbase;
+	var balance;
 	vnt.core.getBalance(coinbase,function(err, balance) {
 	if(err){
     	console.log('error happen')
