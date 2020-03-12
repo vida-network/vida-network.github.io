@@ -10,7 +10,12 @@
 <div>
 <p>Check my VNT balance</p>
 <button onclick="getBalance()">Display my VNT balance</button>
-<p id="balance"></p>
+<p id="vntbalance"></p>
+</div>
+<div>
+<p>Check my VIDA balance</p>
+<button onclick="getAmount()">Display my VIDA balance</button>
+<p id="vidabalance"></p>
 </div>
 <div>
 <p></p>
@@ -54,7 +59,7 @@ function getBalance() {
     	console.log(err)
   	} else {
     	console.log(balance);
-      	document.getElementById("balance").innerHTML = "My VNT Balance is " + balance;
+      	document.getElementById("vntbalance").innerHTML = "My VNT Balance is " + balance;
   	}
 	});
 }
