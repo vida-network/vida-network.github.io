@@ -20,7 +20,18 @@ if (typeof window.vnt !== 'undefined') { // chrome extension installed
 </script>
 
 <script type="text/javascript">
-var coinbase = var coinbase = vnt.core.coinbase;
+vnt.requestAuthorization(function(err, result){
+  if(err){
+    console.log('error happen')
+    console.log(err)
+  } else {
+    console.log(result)
+  }
+});
+</script>
+
+<script type="text/javascript">
+coinbase = var coinbase = vnt.core.coinbase;
 vnt.core.getBalance(coinbase,function(err, balance) {
 if(err){
     console.log('error happen')
